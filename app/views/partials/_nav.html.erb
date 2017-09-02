@@ -1,0 +1,36 @@
+
+   <nav>
+       <div class="nav-wrapper">
+         <%= link_to image_tag("eagle-icon.png", class: "responsive-img"), root_path, class: 'brand-logo' %>
+         <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+         <ul class="right hide-on-med-and-down">
+
+
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Profile', root_path %></li>
+
+
+           <% if user_signed_in? %>
+             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+           <% else %>
+             <li><%= link_to 'Login', new_user_session_path  %></li>
+           <% end %>
+         </ul>
+         <ul class="side-nav center" id="mobile-demo">
+          <li><h3>Aquila</h3></li>
+          <li><%= image_tag("eagle-icon.png", class: "responsive-img side-logo") %></li>
+          <hr>
+
+
+           <li><%= link_to 'Home', root_path, class: 'waves-effect waves-teal' %></li>
+          <li><%= link_to('Profile', root_path, class: 'waves-effect waves-teal') %></li>
+
+
+           <% if user_signed_in? %>
+             <li><%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'waves-effect waves-teal') %></li>
+           <% else %>
+             <li><%= link_to('Login', new_user_session_path, class: 'waves-effect waves-teal')  %></li>
+           <% end %>
+         </ul>
+       </div>
+     </nav>

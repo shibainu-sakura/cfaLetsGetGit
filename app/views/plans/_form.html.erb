@@ -1,0 +1,59 @@
+<%= form_for [@list, plan] do |f| %>
+
+<div class="row">
+  <% if plan.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(plan.errors.count, "error") %>
+      prohibited this plan from being saved:</h2>
+
+    <ul>
+      <% plan.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+</div>
+
+<div class="row study-inputs">
+  <div class="input-field col s4">
+    <!-- <select id="typeOfStudy">
+>>>>>>> 98b9f36b2a22e0ab809c1a9b83ad130dbac0204e
+      <option value="" disabled selected>Type of Study</option>
+      <option value="1">Reading</option>
+      <option value="2">Practicing</option>
+      <option value="3">Contributing</option>
+    </select> -->
+    <%= f.select :type_of_study, ['Type of Study', 'Reading', 'Practicing', 'Contributing'], disabled: 'Type of Study', selected: 'Type of Study'%>
+
+  </div>
+
+  <div class="col s4">
+    <div class="input-field">
+      <%= f.label :resource %>
+      <%= f.text_field :title %>
+    </div>
+  </div>
+
+  <div class="input-field col s4">
+
+    <!-- <select id="hoursOfStudy">
+>>>>>>> 98b9f36b2a22e0ab809c1a9b83ad130dbac0204e
+      <option value="" disabled selected>Hours</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4+</option>
+    </select> -->
+    <%= f.select :hours, ['Hours', '1', '2', '3', '4+'], disabled: 'Hours', selected: 'Hours' %>
+    <!-- <label>Type of Study</label> -->
+  </div>
+</div>
+
+<div class="row">
+  <div class="actions">
+    <%= f.submit 'Create', class: 'btn waves-effect waves-light' %>
+  </div>
+</div>
+
+<% end %>
